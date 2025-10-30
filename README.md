@@ -1,3 +1,21 @@
+This project shows the difference between using a RedirectFunction vs a string.
+
+– A string issues a 302 redirect, causing the browser to request the new route.
+– In contrast, a RedirectFunction returning the same string, will not issue a 302, but 200 instead.
+
+```
+  {
+    path: 'string',
+    redirectTo: 'notFound', // expect: 302, indeed returns 302 (redirect)
+  },
+  {
+    path: 'fn',
+    redirectTo: () => 'notFound', // expect: 302, but returns 200.
+  },
+```
+
+
+
 # DemoRoutes
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.8.
